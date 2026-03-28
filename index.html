@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookSphere — Read Beyond Boundaries</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ── NAV ── -->
+    <nav id="navbar">
+      <a href="#" class="nav-logo">Book<span>Sphere</span></a>
+      <ul class="nav-links">
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="#books">Browse</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button
+          class="btn-ghost"
+          onclick="showToast('🔑 Login feature coming soon!')"
+        >
+          Log In
+        </button>
+        <button
+          class="btn-primary"
+          onclick="showToast('🎉 Sign up feature coming soon!')"
+        >
+          Join Free
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="hero-bg-circle c1"></div>
+      <div class="hero-bg-circle c2"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">Your literary universe</div>
+        <h1>Read <em>Beyond</em><br />Boundaries</h1>
+        <p>
+          Discover thousands of books, track your reading journey, and connect
+          with a community of passionate readers around the world.
+        </p>
+        <div class="hero-cta">
+          <a href="#books" class="btn-lg primary">Explore Books</a>
+          <a href="#categories" class="btn-lg secondary">Browse Categories</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">50K+</div>
+            <div class="stat-label">Books</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">120K</div>
+            <div class="stat-label">Readers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">200+</div>
+            <div class="stat-label">Genres</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Hero Books -->
+      <div class="hero-books">
+        <div class="book-card-hero">
+          <div
+            class="book-cover-placeholder"
+            style="background: linear-gradient(150deg, #7b3f20, #4a1c0a)"
+          >
+            <div class="cover-title">The Alchemist</div>
+            <div class="cover-author">Paulo Coelho</div>
+          </div>
+        </div>
+        <div class="book-card-hero">
+          <div
+            class="book-cover-placeholder"
+            style="background: linear-gradient(150deg, #1a4a6b, #0d2b40)"
+          >
+            <div class="cover-title">Dune</div>
+            <div class="cover-author">Frank Herbert</div>
+          </div>
+        </div>
+        <div class="book-card-hero">
+          <div
+            class="book-cover-placeholder"
+            style="background: linear-gradient(150deg, #3b6b4a, #1a3d26)"
+          >
+            <div class="cover-title">Atomic Habits</div>
+            <div class="cover-author">James Clear</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SEARCH ── -->
+    <div class="search-section">
+      <div class="search-inner">
+        <h2>Find your next great read</h2>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by title, author, or ISBN..."
+          />
+          <select>
+            <option>All Genres</option>
+            <option>Fiction</option>
+            <option>Non-Fiction</option>
+            <option>Fantasy</option>
+            <option>Mystery</option>
+            <option>Sci-Fi</option>
+            <option>Biography</option>
+            <option>Self-Help</option>
+          </select>
+          <button onclick="handleSearch()">Search →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TRENDING BOOKS ── -->
+    <section id="books">
+      <div class="section-header-row">
+        <div class="section-header" style="margin-bottom: 0">
+          <div class="section-label">Trending Now</div>
+          <h2 class="section-title">Popular Books</h2>
+        </div>
+        <a href="#" class="view-all">View all books →</a>
+      </div>
+      <br />
+      <div class="books-grid" id="booksGrid"></div>
+    </section>
+
+    <!-- ── CATEGORIES ── -->
+    <section class="categories-section" id="categories">
+      <div class="section-header-row">
+        <div class="section-header" style="margin-bottom: 0">
+          <div class="section-label">Explore</div>
+          <h2 class="section-title">Browse by Genre</h2>
+        </div>
+      </div>
+      <br />
+      <div class="categories-grid" id="categoriesGrid"></div>
+    </section>
+
+    <!-- ── FEATURED BOOK ── -->
+    <section class="featured-section" id="featured">
+      <div
+        class="section-label"
+        style="color: var(--amber-light); display: block; margin-bottom: 0.5rem"
+      >
+        Editor's Pick
+      </div>
+      <div class="featured-grid">
+        <div
+          class="featured-cover"
+          style="background: linear-gradient(150deg, #7b3f20 0%, #2c1005 100%)"
+        >
+          <div class="title" style="font-size: 2rem">The Midnight Library</div>
+          <div class="author" style="margin-top: 1rem">Matt Haig</div>
+        </div>
+        <div class="featured-info">
+          <h3>The Midnight Library</h3>
+          <p>
+            Between life and death there is a library. When Nora Seed finds
+            herself in the Midnight Library, she has a chance to make things
+            right. She can undo every regret and live any life she ever dreamed
+            of — but which life is truly worth living?
+          </p>
+          <div class="featured-tags">
+            <span class="tag">Contemporary Fiction</span>
+            <span class="tag">Philosophy</span>
+            <span class="tag">Magical Realism</span>
+          </div>
+          <div class="featured-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-text">4.8 / 5 · 128,000 reviews</span>
+          </div>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+            <button
+              class="btn-lg primary"
+              style="border-radius: 50px"
+              onclick="showToast('📖 Starting to read The Midnight Library!')"
+            >
+              Read Now
+            </button>
+            <button
+              class="btn-lg secondary"
+              style="
+                border-radius: 50px;
+                color: var(--cream);
+                border-color: rgba(245, 240, 232, 0.4);
+              "
+              onclick="showToast('❤️ Added to wishlist!')"
+            >
+              Add to Wishlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIALS ── -->
+    <section class="testimonials-section" id="about">
+      <div class="section-header-row">
+        <div class="section-header" style="margin-bottom: 0">
+          <div class="section-label">Community</div>
+          <h2 class="section-title">What Readers Say</h2>
+        </div>
+      </div>
+      <br />
+      <div class="testimonials-grid" id="testimonialsGrid"></div>
+    </section>
+
+    <!-- ── NEWSLETTER ── -->
+    <div class="newsletter-section">
+      <h2>Stay in the Loop 📚</h2>
+      <p>
+        Get weekly book recommendations, author spotlights, and reading tips
+        straight to your inbox.
+      </p>
+      <div class="newsletter-form">
+        <input
+          type="email"
+          id="newsletterEmail"
+          placeholder="Enter your email address"
+        />
+        <button onclick="handleNewsletter()">Subscribe</button>
+      </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo"
+            >Book<span style="color: var(--amber)">Sphere</span></a
+          >
+          <p>
+            Your gateway to infinite worlds, one page at a time. Discover,
+            explore, and fall in love with reading again.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Discover</h4>
+          <ul>
+            <li><a href="#">Bestsellers</a></li>
+            <li><a href="#">New Releases</a></li>
+            <li><a href="#">Award Winners</a></li>
+            <li><a href="#">Staff Picks</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="#">Reading Clubs</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Reading Challenges</a></li>
+            <li><a href="#">Author Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 BookSphere. All rights reserved.</p>
+        <p>Made with ❤️ for book lovers everywhere</p>
+      </div>
+    </footer>
+
+    <!-- ── MODAL ── -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" id="modalContent"></div>
+    </div>
+
+    <!-- ── TOAST ── -->
+    <div class="toast" id="toast"></div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+  </body>
+</html>
